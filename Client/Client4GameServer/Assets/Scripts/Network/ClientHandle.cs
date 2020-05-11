@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using UnityEngine;
 
 public class ClientHandle : MonoBehaviour
@@ -30,7 +31,8 @@ public class ClientHandle : MonoBehaviour
         int id = packet.ReadInt();
         Vector3 position = packet.ReadVector3();
 
-        GameManager.Players[id].transform.position = position;
+        GameManager.Players[id].TargetPosition = position;
+        GameManager.Players[id].ReachTargetTime = DateTime.Now.AddMilliseconds(1000f / 20f); // server running at 20 ticks per sec
     }
 
     public static void PlayerRotation(Packet packet)

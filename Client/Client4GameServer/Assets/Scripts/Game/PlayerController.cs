@@ -20,6 +20,16 @@ public class PlayerController : MonoBehaviour
             Input.GetKey(KeyCode.D)
         };
 
+        if (inputs[0] || inputs[1] ||inputs[2] || inputs[3])
+        {
+            this.gameObject.GetComponent<Animator>().SetBool("walking", true);
+        }
+        else
+        {
+            this.gameObject.GetComponent<Animator>().SetBool("walking", false);
+        }
+
+
         ClientSend.PlayerMovement(inputs);
     }
 }
