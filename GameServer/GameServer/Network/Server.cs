@@ -108,7 +108,7 @@ namespace GameServer
             }
             catch (Exception e)
             {
-                Console.WriteLine($"Error sending data to {clientEndPoint} via UDP");
+                Console.WriteLine($"Error sending data to {clientEndPoint} via UDP: {e}");
             }
         }
 
@@ -122,7 +122,7 @@ namespace GameServer
             PacketHandlers = new Dictionary<int, PacketHandler>()
             {
                 {(int) ClientPackets.welcomeReceived, ServerHandle.WelcomeReceived},
-                {(int) ClientPackets.udpTestReceived, ServerHandle.UDPTestReceived}
+                {(int) ClientPackets.playerMovement, ServerHandle.PlayerMovement}
             };
             Console.WriteLine("Initialized Server Data!");
         }

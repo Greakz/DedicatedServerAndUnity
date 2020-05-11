@@ -3,3 +3,6 @@ C:\git\GameTrys\Take1\GameServer\GameServer\bin\Debug\GameServer.pdb
 C:\git\GameTrys\Take1\GameServer\GameServer\obj\Debug\GameServer.csprojAssemblyReference.cache
 C:\git\GameTrys\Take1\GameServer\GameServer\obj\Debug\GameServer.exe
 C:\git\GameTrys\Take1\GameServer\GameServer\obj\Debug\GameServer.pdb
+C:\git\GameTrys\Take1\GameServer\GameServer\bin\Debug\System.Numerics.Vectors.dll
+C:\git\GameTrys\Take1\GameServer\GameServer\bin\Debug\System.Numerics.Vectors.xml
+C:\git\GameTrys\Take1\GameServer\GameServer\obj\Debug\GameServer.csproj.CopyComplete
