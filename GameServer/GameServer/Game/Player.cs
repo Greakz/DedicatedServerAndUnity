@@ -14,6 +14,7 @@ namespace GameServer
 
         private float MoveSpeed = 5f / Constants.TICKS_PER_SEC;
         private bool[] Inputs;
+        private float FallSpeed = 1.0f;
 
         public Player(int id, string username, Vector3 spawnPosition)
         {
@@ -53,12 +54,28 @@ namespace GameServer
 
         private void Move(Vector2 inputDirection)
         {
-       
-            Vector3 forward = Vector3.Transform(new Vector3(0, 0, 1), Rotation);
-            Vector3 right = Vector3.Normalize(Vector3.Cross(forward, new Vector3(0, 1, 0)));
 
-            Vector3 moveDirection = right * inputDirection.X + forward * inputDirection.Y;
-            Position += moveDirection * MoveSpeed;
+            float distanceFromCenter = Position.Length();
+            if (distanceFromCenter > 5.0f)
+            {
+                // only vertical fall, left platformer
+                Position += -Vector3.UnitY * FallSpeed;
+                FallSpeed *= 1.05f;
+                if (Position.Y < -20)
+                {
+                    Position = Vector3.Zero;
+                    FallSpeed = 1.0f;
+                }
+            }
+            else
+            {
+                // move normal
+                Vector3 forward = Vector3.Transform(new Vector3(0, 0, 1), Rotation);
+                Vector3 right = Vector3.Normalize(Vector3.Cross(forward, new Vector3(0, 1, 0)));
+
+                Vector3 moveDirection = right * inputDirection.X + forward * inputDirection.Y;
+                Position += moveDirection * MoveSpeed;
+            }
 
             ServerSend.PlayerPosition(this);
             ServerSend.PlayerRotation(this);
