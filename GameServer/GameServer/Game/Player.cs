@@ -1,6 +1,4 @@
-using System;
 using System.Numerics;
-using GameServer.Properties;
 
 namespace GameServer
 {
