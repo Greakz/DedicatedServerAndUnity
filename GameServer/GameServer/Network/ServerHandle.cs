@@ -1,7 +1,7 @@
 using System;
 using System.Numerics;
 
-namespace GameServer
+namespace GameServer.Network
 {
     public class ServerHandle
     {

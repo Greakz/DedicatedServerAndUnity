@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
 
-namespace GameServer
+namespace GameServer.Network
 {
     /// <summary>Sent from server to client.</summary>
     public enum ServerPackets

@@ -1,6 +1,7 @@
 using System;
+using GameServer.Game;
 
-namespace GameServer
+namespace GameServer.Network
 {
     public class ServerSend
     {

@@ -1,4 +1,6 @@
-namespace GameServer
+using GameServer.Network;
+
+namespace GameServer.Game
 {
     public class GameLogic
     {

@@ -1,4 +1,4 @@
-namespace GameServer
+namespace GameServer.Network
 {
     public class Constants
     {

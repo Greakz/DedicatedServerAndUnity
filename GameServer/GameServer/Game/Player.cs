@@ -1,6 +1,7 @@
 using System.Numerics;
+using GameServer.Network;
 
-namespace GameServer
+namespace GameServer.Game
 {
     public class Player
     {
