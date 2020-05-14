@@ -4,5 +4,8 @@ namespace GameServer.Network
     {
         public const int TICKS_PER_SEC = 20;
         public const int MS_PER_TICK = 1000 / TICKS_PER_SEC;
+
+        public const string RUNNING_IP = "92.116.54.147";
+        public const int RUNNING_PORT = 26950;
     }
 }

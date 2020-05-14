@@ -20,16 +20,16 @@ namespace GameServer.Network
 
         private static UdpClient _udpListener;
 
-        public static void Start(int maxPlayers, int port)
+        public static void Start(int maxPlayers)
         {
             MaxPlayers = maxPlayers;
-            Port = port;
+            Port = Constants.RUNNING_PORT;
 
             Console.WriteLine("Starting Server...");
 
             InitializeServerData();
 
-            _tcpListener = new TcpListener(IPAddress.Any, Port);
+            _tcpListener = new TcpListener(IPAddress.Parse(Constants.RUNNING_IP), Constants.RUNNING_PORT);
             _tcpListener.Start();
             _tcpListener.BeginAcceptTcpClient(new AsyncCallback(TcpConnectCallback), null);
 

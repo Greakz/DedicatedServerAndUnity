@@ -13,7 +13,7 @@ namespace GameServer
         public static void Main(string[] args)
         {
             Console.Title = "Game Server";
-            Server.Start(50, 26950);
+            Server.Start(50);
             
             Thread mainThread = new Thread(new ThreadStart(MainThread));
             mainThread.Start();
