@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Net.Sockets;
 using System.Threading;
 using GameServer.Game;
 using GameServer.Network;
@@ -13,10 +15,11 @@ namespace GameServer
         public static void Main(string[] args)
         {
             Console.Title = "Game Server";
+
             Server.Start(50);
             
-            Thread mainThread = new Thread(new ThreadStart(MainThread));
-            mainThread.Start();
+           Thread mainThread = new Thread(new ThreadStart(MainThread));
+           mainThread.Start();
             
             isRunning = true;
             Console.ReadKey();
