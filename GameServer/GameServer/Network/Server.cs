@@ -29,7 +29,7 @@ namespace GameServer.Network
 
             InitializeServerData();
 
-            _tcpListener = new TcpListener(IPAddress.Parse("92.116.54.147"), Constants.RUNNING_PORT);
+            _tcpListener = new TcpListener(IPAddress.Any, Constants.RUNNING_PORT);
             _tcpListener.Start();
             _tcpListener.BeginAcceptTcpClient(new AsyncCallback(TcpConnectCallback), null);
 
