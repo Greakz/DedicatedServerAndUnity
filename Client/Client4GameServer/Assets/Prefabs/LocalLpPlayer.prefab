@@ -327,6 +327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 0
   Username: 
+  TargetPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &6125913161830363443
 GameObject:
   m_ObjectHideFlags: 0
@@ -1216,4 +1217,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 8843733314864858149}
   sensitivity: 100
-  clampAngle: 85
+  watchAngle: -45
+  verticalMouseSpeed: 0.5
+  cameraDistance: 10

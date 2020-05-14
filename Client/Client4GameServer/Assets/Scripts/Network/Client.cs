@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design.Serialization;
 using System.Net;
@@ -9,8 +10,10 @@ public class Client : MonoBehaviour
 {
     public static Client Instance;
     public static int DataBufferSize = 4096;
+    
+    public Vector3[] points = new Vector3[5];
 
-    public string Ip = "2a02:908:d87:cca0:b553:1b92:9c:ae0d";
+    public string Ip = "92.116.54.147";
     public int Port = 26950;
     public int MyId = 0;
     public TCP Tcp;
@@ -63,12 +66,14 @@ public class Client : MonoBehaviour
 
         public void Connect()
         {
-            Socket = new TcpClient
+            Socket = new TcpClient()
             {
                 ReceiveBufferSize = DataBufferSize,
                 SendBufferSize = DataBufferSize
             };
             _receiveBuffer = new byte[DataBufferSize];
+            
+
             Socket.BeginConnect(Instance.Ip, Instance.Port, ConnectCallback, Socket);
         }
 
@@ -76,6 +81,7 @@ public class Client : MonoBehaviour
         {
             if (!Socket.Connected)
             {
+                Debug.Log("TcpConnectCallback: Socket is not Connected");
                 return;
             }
 
