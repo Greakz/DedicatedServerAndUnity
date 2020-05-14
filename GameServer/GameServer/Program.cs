@@ -18,6 +18,8 @@ namespace GameServer
 
             Server.Start(50);
             
+            
+            
            Thread mainThread = new Thread(new ThreadStart(MainThread));
            mainThread.Start();
             
