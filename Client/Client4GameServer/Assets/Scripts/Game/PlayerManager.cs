@@ -9,7 +9,7 @@ public class PlayerManager : MonoBehaviour
 
     public Vector3 TargetPosition;
     public DateTime ReachTargetTime;
-    
+
     public void Update()
     {
         Vector3 distance = (TargetPosition - this.transform.position);
@@ -28,5 +28,10 @@ public class PlayerManager : MonoBehaviour
         {
             transform.position = TargetPosition;
         }
+    }
+
+    public void setMoving(bool moving)
+    {
+        this.GetComponent<Animator>().SetBool("walking", moving);
     }
 }

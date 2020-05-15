@@ -10,6 +10,7 @@ namespace GameServer.Game
 
         public Vector3 Position;
         public Quaternion Rotation;
+        public bool isMoving;
 
         private float MoveSpeed = 5f / Constants.TICKS_PER_SEC;
         private bool[] Inputs;
@@ -48,12 +49,21 @@ namespace GameServer.Game
                 inputDirection.X -= 1;
             }
 
+            if (Inputs[0] || Inputs[1] || Inputs[2] || Inputs[3])
+            {
+                isMoving = true;
+            }
+            else
+            {
+                isMoving = false;
+            }
+
+
             Move(inputDirection);
         }
 
         private void Move(Vector2 inputDirection)
         {
-
             float distanceFromCenter = Position.Length();
             if (distanceFromCenter > 5.0f)
             {
@@ -79,7 +89,7 @@ namespace GameServer.Game
             ServerSend.PlayerPosition(this);
             ServerSend.PlayerRotation(this);
         }
-        
+
         public void SetInput(bool[] inputs, Quaternion rotation)
         {
             Inputs = inputs;

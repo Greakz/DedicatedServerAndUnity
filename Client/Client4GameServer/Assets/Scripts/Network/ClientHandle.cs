@@ -30,9 +30,11 @@ public class ClientHandle : MonoBehaviour
     {
         int id = packet.ReadInt();
         Vector3 position = packet.ReadVector3();
+        bool isMoving = packet.ReadBool();
 
         GameManager.Players[id].TargetPosition = position;
         GameManager.Players[id].ReachTargetTime = DateTime.Now.AddMilliseconds(1000f / 20f); // server running at 20 ticks per sec
+        GameManager.Players[id].setMoving(isMoving);
     }
 
     public static void PlayerRotation(Packet packet)

@@ -90,6 +90,7 @@ namespace GameServer.Network
             {
                 packet.Write(player.Id);
                 packet.Write(player.Position);
+                packet.Write(player.isMoving);
                 
                 SendUDPToAll(packet);
             }
@@ -105,6 +106,6 @@ namespace GameServer.Network
                 SendUDPToAll(player.Id, packet);
             }
         }
-        
+
     }
 }
